@@ -1,0 +1,38 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WinWebSolution.Module", "WinWebSolution.Module\WinWebSolution.Module.vbproj", "{C6D0F5AF-2BB6-4F05-A1BC-2DA066ADBDBD}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WinWebSolution.Web", "WinWebSolution.Web\WinWebSolution.Web.vbproj", "{60B18688-828C-4067-BD41-7B354853EFFC}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WinWebSolution.Win", "WinWebSolution.Win\WinWebSolution.Win.vbproj", "{E867FD79-DAC2-44A7-A1B7-543E3C643752}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		EasyTest|Any CPU = EasyTest|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6D0F5AF-2BB6-4F05-A1BC-2DA066ADBDBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6D0F5AF-2BB6-4F05-A1BC-2DA066ADBDBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6D0F5AF-2BB6-4F05-A1BC-2DA066ADBDBD}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{C6D0F5AF-2BB6-4F05-A1BC-2DA066ADBDBD}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{C6D0F5AF-2BB6-4F05-A1BC-2DA066ADBDBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6D0F5AF-2BB6-4F05-A1BC-2DA066ADBDBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60B18688-828C-4067-BD41-7B354853EFFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60B18688-828C-4067-BD41-7B354853EFFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60B18688-828C-4067-BD41-7B354853EFFC}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{60B18688-828C-4067-BD41-7B354853EFFC}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{60B18688-828C-4067-BD41-7B354853EFFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60B18688-828C-4067-BD41-7B354853EFFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E867FD79-DAC2-44A7-A1B7-543E3C643752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E867FD79-DAC2-44A7-A1B7-543E3C643752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E867FD79-DAC2-44A7-A1B7-543E3C643752}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{E867FD79-DAC2-44A7-A1B7-543E3C643752}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{E867FD79-DAC2-44A7-A1B7-543E3C643752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E867FD79-DAC2-44A7-A1B7-543E3C643752}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
