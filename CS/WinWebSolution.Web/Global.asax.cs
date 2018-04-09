@@ -17,7 +17,7 @@ namespace WinWebSolution.Web {
             InitializeComponent();
         }
         protected void Application_Start(Object sender, EventArgs e) {
-            
+            DevExpress.ExpressApp.Web.WebApplication.OptimizationSettings.AllowFastProcessListViewRecordActions = false;
 
 #if EASYTEST
 			DevExpress.ExpressApp.Web.TestScripts.TestScriptsManager.EasyTestEnabled = true;
