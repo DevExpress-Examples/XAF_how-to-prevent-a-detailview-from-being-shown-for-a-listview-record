@@ -27,6 +27,8 @@ namespace WinWebSolution.Web {
         }
         protected void Session_Start(Object sender, EventArgs e) {
             WebApplication.SetInstance(Session, new WinWebSolutionAspNetApplication());
+            DevExpress.ExpressApp.Web.Templates.DefaultVerticalTemplateContentNew.ClearSizeLimit();
+            WebApplication.Instance.SwitchToNewStyle();			
             WebApplication.Instance.ConnectionString = InMemoryDataStoreProvider.ConnectionString;
 #if EASYTEST
 			if(ConfigurationManager.ConnectionStrings["EasyTestConnectionString"] != null) {

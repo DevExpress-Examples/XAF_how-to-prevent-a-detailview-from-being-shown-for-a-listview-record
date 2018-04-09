@@ -29,6 +29,8 @@ Namespace WinWebSolution.Web
         End Sub
         Protected Sub Session_Start(ByVal sender As Object, ByVal e As EventArgs)
             WebApplication.SetInstance(Session, New WinWebSolutionAspNetApplication())
+            DevExpress.ExpressApp.Web.Templates.DefaultVerticalTemplateContentNew.ClearSizeLimit()
+            WebApplication.Instance.SwitchToNewStyle()			
             WebApplication.Instance.ConnectionString = InMemoryDataStoreProvider.ConnectionString
 #If EASYTEST Then
             If ConfigurationManager.ConnectionStrings("EasyTestConnectionString") IsNot Nothing Then
