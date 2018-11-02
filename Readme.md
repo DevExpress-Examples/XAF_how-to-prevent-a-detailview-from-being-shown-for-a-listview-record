@@ -9,7 +9,7 @@
 <p><strong>2.</strong> For testing purposes, <a href="https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113326.aspx">invoke the Model Editor</a> and set the <em>DefaultShowDetailViewFromListView or ShowDetailView</em> properties for the<em> Views or Views | YourObjetType_ListView</em> nodes to <strong>False</strong> and run the test app to see that a required ListView no longer opens a DetailView in the aforementioned scenario.<br /><br />
 
 
-**Note**
+**ASP.NET**<br />
 By default, XAF Web uses a special fast callback handler for processing ListView records. This handler is intended to optimize performance of showing a DetailView from a ListView. If a DetailView is not shown on a row click, some UI elements may be refreshed incorrectly. So, we recommend disabling this optimization when this solution is used. To do this globally, add the following code to the App_Start event handler:
   <br/>
   
