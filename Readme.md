@@ -8,9 +8,8 @@
 <p><strong>Note</strong>: The process of opening a DetailView by double clicking/pressing the Enter key on a record selected in a ListView is managed by the standard <u><a href="http://www.devexpress.com/Help/?document=ExpressApp/clsDevExpressExpressAppSystemModuleListViewProcessCurrentObjectControllertopic.htm">DevExpress.ExpressApp.SystemModule.ListViewProcessCurrentObjectController</a></u> class and its ProcessCurrentObjectAction in particular. So, we can disable this Action to accomplish our task. The approaches from the <a href="https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument113169">eXpressApp Framework > Concepts > Application Model > Extend and Customize the Application Model in Code</a>,  <a href="https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112810">eXpressApp Framework > Concepts > Application Model > Access the Application Model in Code</a> and <a href="https://documentation.devexpress.com/#eXpressAppFramework/DevExpressExpressAppActionsActionBase_Enabledtopic">ActionBase.Enabled Property</a> articles will be used here.</p>
 <p><strong>2.</strong> For testing purposes, <a href="https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113326.aspx">invoke the Model Editor</a> and set the <em>DefaultShowDetailViewFromListView or ShowDetailView</em> properties for the<em> Views or Views | YourObjetType_ListView</em> nodes to <strong>False</strong> and run the test app to see that a required ListView no longer opens a DetailView in the aforementioned scenario.<br /><br />
 
-
-**Note.**
-We added some optimizations intended to improve the DetailView opening performance. This optimization depends on the default behavior - the ListView item click opens a DetailView. We suggest that you disable this optimization if you suppress DetailView opening to avoid issues. To disable the optimization, add the following code to the App_Start event handler:
+**ASP.NET**<br />
+By default, XAF Web uses a special fast callback handler for processing ListView records. This handler is intended to optimize performance of showing a DetailView from a ListView. If a DetailView is not shown on a row click, some UI elements may be refreshed incorrectly. So, we recommend disabling this optimization when this solution is used. To do this globally, add the following code to the App_Start event handler: 
   <br/>
   
 ```csharp
@@ -23,6 +22,7 @@ DevExpress.ExpressApp.Web.WebApplication.OptimizationSettings.AllowFastProcessLi
 DevExpress.ExpressApp.Web.WebApplication.OptimizationSettings.AllowFastProcessListViewRecordActions = False
 ```
 
+To disable this optimization in a particular ListView, deactivate the ListViewFastCallbackHandlerController. See an example in the <a href="https://www.devexpress.com/Support/Center/Question/Details/T386142/faster-rendering-and-other-performance-optimizations-for-popular-web-ui-scenarios-in-xaf">Faster rendering and other performance optimizations for popular Web UI scenarios in XAF v16.1</a> article.<br />
 
 <strong>IMPORTANT NOTES</strong><br />This article covers only the case when a DetailView is shown from the ListView after a User double clicks/presses the enter key on a record. Other scenarios should be handled separately by extending the code of this controller. For example, if you do not want to show a DetailView after a new object is created via the New Action, you can handle the NewObjectViewController.ObjectCreating event and set its ObjectCreatingEventArgs.ShowDetailView property to False. However, this is outside the purpose of this article.</p>
 
