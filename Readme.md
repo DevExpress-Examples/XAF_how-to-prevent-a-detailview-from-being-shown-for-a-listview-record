@@ -3,19 +3,33 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E622)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# How to prevent a DetailView from being shown for a ListView record
 
+# XAF - How to prevent a Detail View from being shown for a List View record
 
-<p><strong>Scenario</strong></p>
-<p>For certain data forms, a developer needs to limit end-users to editing only through the ListView, i.e. without invoking a separate DetailView.  This is usually done by activating the inline editing and MasterDetailMode = ListViewAndDetailView features as described at <a href="https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument113249">eXpressApp Framework > Concepts > UI Construction > Views > List View Edit Modes</a>. More real user scenarios are described <a href="https://www.devexpress.com/Support/Center/p/S34026">in this Support Center thread</a>.</p>
-<p><img src="https://raw.githubusercontent.com/DevExpress-Examples/how-to-prevent-a-detailview-from-being-shown-for-a-listview-record-e622/17.2.7+/media/f4c032a0-35fa-11e5-80bf-00155d62480c.png"><br /><br /><br /><strong>Steps to </strong><strong>implement<br /></strong></p>
-<p><strong>1.</strong> Copy the <em>WinWebSolution.Module\ShowDetailViewFromListViewController.xx</em> file into the <em>YourSolutionName.Module</em> project and rebuild it.</p>
-<p>The process of opening a DetailView by double-clicking/pressing the Enter key on a record selected in a ListView is managed by the standard <u><a href="https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.SystemModule.ListViewProcessCurrentObjectController">DevExpress.ExpressApp.SystemModule.ListViewProcessCurrentObjectController</a></u> class and its <u><a href="https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.SystemModule.ListViewProcessCurrentObjectController.ProcessCurrentObjectAction">ProcessCurrentObjectAction</a></u>. So, we can disable this Action to accomplish our task. The approaches from the <a href="https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument113169">eXpressApp Framework > Concepts > Application Model > Extend and Customize the Application Model in Code</a>,  <a href="https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112810">eXpressApp Framework > Concepts > Application Model > Access the Application Model in Code</a> and <a href="https://documentation.devexpress.com/#eXpressAppFramework/DevExpressExpressAppActionsActionBase_Enabledtopic">ActionBase.Enabled Property</a> articles are used here.<br /><br />For more convenience and flexibility, the following Model Editor extensions are implemented in the example to control this behavior:<br /> <strong>-</strong> The DefaultShowDetailViewFromListView property at the <em>Views</em> node level allows you to control this functionality globally per application via the Model Editor;<br /> <strong>-</strong> The ShowDetailView property at the <em>Views | List</em><em>View</em> node level allows you to customize only certain List Views via the Model Editor;<br /><br /></p>
-<p><strong>2.</strong> For testing purposes, <a href="https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113326.aspx">invoke the Model Editor</a> and set the <em>DefaultShowDetailViewFromListView or ShowDetailView</em> properties for the<em> Views or Views | YourObjetType_ListView</em> nodes to <strong>False</strong> and run the test app to see that a required ListView no longer opens a DetailView in the aforementioned scenario.<br /><br />
+## Scenario
 
-**ASP.NET**<br />
-By default, XAF Web uses a special fast callback handler for processing ListView records. This handler is intended to optimize performance of showing a DetailView from a ListView. If a DetailView is not shown on a row click, some UI elements may be refreshed incorrectly. So, we recommend disabling this optimization when this solution is used. To do this globally, add the following code to the App_Start event handler: 
-  <br/>
+For certain data forms, a developer needs to limit end-users to editing only through the List View, i.e. without invoking a separate Detail View. This is usually done by activating the inline editing and `MasterDetailMode` = `ListViewAndDetailView` features as described in the following article: [List View Edit Modes](https://docs.devexpress.com/eXpressAppFramework/113249/ui-construction/views/list-view-edit-modes).
+
+![](https://raw.githubusercontent.com/DevExpress-Examples/how-to-prevent-a-detailview-from-being-shown-for-a-listview-record-e622/17.2.7+/media/f4c032a0-35fa-11e5-80bf-00155d62480c.png)
+
+## Implementation Details
+
+1. Copy the _WinWebSolution.Module\ShowDetailViewFromListViewController.xx_ file into the _YourSolutionName.Module_ project and rebuild it.
+   
+   The process of opening a Detail View by double-clicking/pressing the Enter key on a record selected in a List View is managed by the standard [DevExpress.ExpressApp.SystemModule.ListViewProcessCurrentObjectController](https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.SystemModule.ListViewProcessCurrentObjectController) class and its [ProcessCurrentObjectAction](https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.SystemModule.ListViewProcessCurrentObjectController.ProcessCurrentObjectAction) Action.
+   
+   We can disable this Action to accomplish our task. The approaches from the [Extend and Customize the Application Model in Code](https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument113169), [Access the Application Model in Code](https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112810) and [ActionBase.Enabled Property](https://documentation.devexpress.com/#eXpressAppFramework/DevExpressExpressAppActionsActionBase_Enabledtopic) articles are used here.
+   
+   For more convenience and flexibility, the following Model Editor extensions are implemented in the example to control this behavior:
+   
+   * The **DefaultShowDetailViewFromListView** property at the **Views** node level allows you to control this functionality globally per application via the Model Editor.
+   * The **ShowDetailView** property at the **Views** | **ListView** node level allows you to customize only certain List Views via the Model Editor.
+
+2. For testing purposes, [invoke the Model Editor](https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113326.aspx) and set the **DefaultShowDetailViewFromListView** or **ShowDetailView** properties for the **Views** or **Views** | **YourObjetType_ListView** nodes to **False** and run the test app to see that a required List View no longer opens a Detail View in the aforementioned scenario.
+
+### ASP.NET
+
+By default, XAF Web uses a special fast callback handler for processing List View records. This handler is intended to optimize performance of showing a Detail View from a List View. If a Detail View is not shown on a row click, some UI elements may be refreshed incorrectly. So, we recommend disabling this optimization when this solution is used. To do this globally, add the following code to the `App_Start` event handler:
   
 ```csharp
 [C#]
@@ -27,10 +41,14 @@ DevExpress.ExpressApp.Web.WebApplication.OptimizationSettings.AllowFastProcessLi
 DevExpress.ExpressApp.Web.WebApplication.OptimizationSettings.AllowFastProcessListViewRecordActions = False
 ```
 
-To disable this optimization in a particular ListView, deactivate the ListViewFastCallbackHandlerController. See an example in the <a href="https://www.devexpress.com/Support/Center/Question/Details/T386142/faster-rendering-and-other-performance-optimizations-for-popular-web-ui-scenarios-in-xaf">Faster rendering and other performance optimizations for popular Web UI scenarios in XAF v16.1</a> article.<br />
+To disable this optimization in a particular List View, deactivate the `ListViewFastCallbackHandlerController`. See an example in the [Faster rendering and other performance optimizations for popular Web UI scenarios in XAF v16.1](https://www.devexpress.com/Support/Center/Question/Details/T386142/faster-rendering-and-other-performance-optimizations-for-popular-web-ui-scenarios-in-xaf) article.
 
-<strong>IMPORTANT NOTES</strong><br />This article covers only the case when a DetailView is shown from the ListView after a User double clicks/presses the enter key on a record. Other scenarios should be handled separately by extending the code of this controller. For example, if you do not want to show a DetailView after a new object is created via the New Action, you can handle the NewObjectViewController.ObjectCreating event and set its ObjectCreatingEventArgs.ShowDetailView property to False. However, this is outside the purpose of this article.</p>
+## Additional Information
 
-<br/>
+This article covers only the case when a Detail View is shown from the List View after a User double-clicks or presses Enter key on a record. Other scenarios should be handled separately by extending the code of this controller.
 
+For example, if you do not want to show a Detail View after a new object is created via the New Action, you can handle the `NewObjectViewController.ObjectCreating` event and set its `ObjectCreatingEventArgs.ShowDetailView` property to `false`. However, this is outside the purpose of this article.
 
+## Documentation
+
+* [Core - Make it easier to prevent showing a DetaiView from a ListView permanently or on a condition](https://supportcenter.devexpress.com/ticket/details/s34026/core-make-it-easier-to-prevent-showing-a-detaiview-from-a-listview-permanently-or-on-a).
