@@ -29,15 +29,15 @@ For certain data forms, a developer needs to limit end-users to editing only th
 
 ### ASP.NET
 
-By default, XAF Web uses a special fast callback handler for processing List View records. This handler is intended to optimize performance of showing a Detail View from a List View. If a Detail View is not shown on a row click, some UI elements may be refreshed incorrectly. So, we recommend disabling this optimization when this solution is used. To do this globally, add the following code to the `App_Start` event handler:
+By default, XAF Web uses a special fast callback handler for processing List View records. This handler is intended to optimize performance of showing a Detail View from a List View. If a Detail View is not shown on a row click, some UI elements may be refreshed incorrectly. So, we recommend disabling this optimization when this solution is used. To do this globally, add the following code to the `App_Start` event handler if you work with C#:
   
-```csharp
-[C#]
+```cs
 DevExpress.ExpressApp.Web.WebApplication.OptimizationSettings.AllowFastProcessListViewRecordActions = false;
 ```
 
+If you work with VB, add this:
+
 ```vb
-[VB]
 DevExpress.ExpressApp.Web.WebApplication.OptimizationSettings.AllowFastProcessListViewRecordActions = False
 ```
 
