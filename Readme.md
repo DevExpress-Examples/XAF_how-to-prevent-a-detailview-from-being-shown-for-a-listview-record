@@ -15,7 +15,7 @@ For certain data forms, a developer needs to limit end-users to editing only th
 ## Implementation Details
 
 1. Copy the _WinWebSolution.Module\ShowDetailViewFromListViewController.xx_ file into the _YourSolutionName.Module_ project and rebuild it.
-   
+
    The process of opening a Detail View by double-clicking/pressing the Enter key on a record selected in a List View is managed by the standard [DevExpress.ExpressApp.SystemModule.ListViewProcessCurrentObjectController](https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.SystemModule.ListViewProcessCurrentObjectController) class and its [ProcessCurrentObjectAction](https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.SystemModule.ListViewProcessCurrentObjectController.ProcessCurrentObjectAction) Action.
    
    We can disable this Action to accomplish our task. The approaches from the [Change the Application Model](https://docs.devexpress.com/eXpressAppFramework/403527/ui-construction/application-model-ui-settings-storage/change-application-model), [Access the Application Model in Code](https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112810) and [ActionBase.Enabled Property](https://documentation.devexpress.com/#eXpressAppFramework/DevExpressExpressAppActionsActionBase_Enabledtopic) articles are used here.
@@ -25,7 +25,7 @@ For certain data forms, a developer needs to limit end-users to editing only th
    * The **DefaultShowDetailViewFromListView** property at the **Views** node level allows you to control this functionality globally per application via the Model Editor.
    * The **ShowDetailView** property at the **Views** | **ListView** node level allows you to customize only certain List Views via the Model Editor.
 
-2. For testing purposes, [invoke the Model Editor](https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113326.aspx) and set the **DefaultShowDetailViewFromListView** or **ShowDetailView** properties for the **Views** or **Views** | **YourObjetType_ListView** nodes to **False** and run the test app to see that a required List View no longer opens a Detail View in the aforementioned scenario.
+2. For testing purposes, [invoke the Model Editor](https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113326.aspx) and set the **DefaultShowDetailViewFromListView** or **ShowDetailView** properties for the **Views** or **Views** | **YourObjetType_ListView** nodes to **False** and run the test app to see that a required List View no longer opens a Detail View in the aforementioned scenario.
 
 ### ASP.NET
 
