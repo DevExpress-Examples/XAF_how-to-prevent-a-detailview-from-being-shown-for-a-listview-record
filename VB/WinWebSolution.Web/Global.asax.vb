@@ -19,7 +19,8 @@ Namespace WinWebSolution.Web
             InitializeComponent()
         End Sub
         Protected Sub Application_Start(ByVal sender As Object, ByVal e As EventArgs)
-            DevExpress.ExpressApp.Web.WebApplication.OptimizationSettings.AllowFastProcessListViewRecordActions = False
+                        DevExpress.ExpressApp.FrameworkSettings.DefaultSettingsCompatibilityMode = DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode.v20_1
+DevExpress.ExpressApp.Web.WebApplication.OptimizationSettings.AllowFastProcessListViewRecordActions = False
 
 #If EASYTEST Then
             DevExpress.ExpressApp.Web.TestScripts.TestScriptsManager.EasyTestEnabled = True
