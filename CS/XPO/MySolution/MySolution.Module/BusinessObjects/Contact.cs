@@ -1,25 +1,11 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using DevExpress.Xpo;
-using DevExpress.ExpressApp;
-using System.ComponentModel;
-
-using DevExpress.Data.Filtering;
-using DevExpress.Persistent.Base;
-using System.Collections.Generic;
-using DevExpress.ExpressApp.Model;
+﻿using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
-using DevExpress.Persistent.Validation;
-using DevExpress.ExpressApp.Editors;
-using System.Diagnostics;
-using DevExpress.Persistent.Base.General;
-using DevExpress.ExpressApp.SystemModule;
+using DevExpress.Xpo;
 
-namespace dxTestSolution.Module.BusinessObjects {
-     [DefaultClassOptions]
-	  
-    public class Contact : BaseObject { 
+namespace MySolution.Module.BusinessObjects {
+    [DefaultClassOptions]
+
+    public class Contact : BaseObject {
         public Contact(Session session)
             : base(session) {
         }
@@ -44,7 +30,7 @@ namespace dxTestSolution.Module.BusinessObjects {
                 SetPropertyValue(nameof(LastName), ref _lastName, value);
             }
         }
-		int _age;
+        int _age;
         public int Age {
             get {
                 return _age;
@@ -53,6 +39,6 @@ namespace dxTestSolution.Module.BusinessObjects {
                 SetPropertyValue(nameof(Age), ref _age, value);
             }
         }
-       
+
     }
 }
