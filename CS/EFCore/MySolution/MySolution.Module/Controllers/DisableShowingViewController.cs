@@ -2,7 +2,7 @@
 using DevExpress.ExpressApp.SystemModule;
 
 namespace dxTestSolution.Module.Controllers {
-    public class CustomController : ViewController {
+    public class DisableShowingViewController : ViewController {
         protected override void OnActivated() {
             base.OnActivated();
             ListViewProcessCurrentObjectController targetController = Frame.GetController<ListViewProcessCurrentObjectController>();
