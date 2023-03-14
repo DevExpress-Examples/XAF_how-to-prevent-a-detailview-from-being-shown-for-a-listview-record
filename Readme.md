@@ -3,7 +3,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# XAF - Prevent Showing a Detail View for a List View Object
+# XAF - Prevent Showing a Detail View of a List View Object
 
 This example demonstrates how to prevent a user from invoking a Detail View of an object from a List View.
 
