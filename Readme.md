@@ -5,9 +5,9 @@
 
 # XAF - Prevent Showing a Detail View of a List View Object
 
-This example demonstrates how to prevent a user from invoking a Detail View of an object from a List View.
+This example demonstrates how to prevent a user from invoking a Detail View of an object in a List View.
 
-To allow users to edit objects directly in a List View, enable the [in-place editing](https://docs.devexpress.com/eXpressAppFramework/113249/ui-construction/views/list-view-edit-modes#in-place-editing) and [split layout](https://docs.devexpress.com/eXpressAppFramework/113249/ui-construction/views/list-view-edit-modes#split-layout-the-masterdetailmode-property) functionality.
+To allow users to edit objects directly in a List View, enable the [in-place edit](https://docs.devexpress.com/eXpressAppFramework/113249/ui-construction/views/list-view-edit-modes#in-place-editing) and [split layout](https://docs.devexpress.com/eXpressAppFramework/113249/ui-construction/views/list-view-edit-modes#split-layout-the-masterdetailmode-property) functionality.
 
 ## Implementation Details
 
@@ -15,7 +15,7 @@ Use the [Frame.GetController<ControllerType>](https://docs.devexpress.com/eXpres
 
 ## Additional Information
   
-This example only covers the case when an XAF application displays a Detail View of an object after a user double-clicks this object in a List View or focuses an object in a List View and presses Enter. To handle other scenarios, extend the controller's code. For example, if you do not want your XAF application to invoke a Detail View after a user clicks the **New** button to create an object in a List View, handle the [NewObjectViewController.ObjectCreating](https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.SystemModule.NewObjectViewController.ObjectCreating) event and set its [ObjectCreatingEventArgs.ShowDetailView](https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.SystemModule.ObjectCreatingEventArgs.ShowDetailView) property to `false`.
+This example only covers the scenario when an XAF application displays a Detail View of an object after a user double-clicks this object in a List View or focuses an object in a List View and presses Enter. To handle other scenarios, extend the controller's code. For example, if you do not want your XAF application to invoke a Detail View after a user clicks the **New** button to create an object in a List View, handle the [NewObjectViewController.ObjectCreating](https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.SystemModule.NewObjectViewController.ObjectCreating) event and set the [ObjectCreatingEventArgs.ShowDetailView](https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.SystemModule.ObjectCreatingEventArgs.ShowDetailView) property to `false`.
   
 ## Files to Review
 
