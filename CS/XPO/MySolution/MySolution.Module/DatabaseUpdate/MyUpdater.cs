@@ -12,8 +12,7 @@ using DevExpress.ExpressApp.Xpo;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.ExpressApp.Security;
 using DevExpress.Persistent.BaseImpl.PermissionPolicy;
-
-using dxTestSolution.Module.BusinessObjects;
+using MySolution.Module.BusinessObjects;
 
 namespace MySolution.Module.DatabaseUpdate
 {
