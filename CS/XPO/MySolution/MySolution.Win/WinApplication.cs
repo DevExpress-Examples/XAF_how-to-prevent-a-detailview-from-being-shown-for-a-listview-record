@@ -14,7 +14,6 @@ public class MySolutionWindowsFormsApplication : WinApplication {
 		SplashScreen = new DXSplashScreen(typeof(XafSplashScreen), new DefaultOverlayFormOptions());
         ApplicationName = "MySolution";
         CheckCompatibilityType = DevExpress.ExpressApp.CheckCompatibilityType.DatabaseSchema;
-        UseOldTemplates = false;
         DatabaseVersionMismatch += MySolutionWindowsFormsApplication_DatabaseVersionMismatch;
         CustomizeLanguagesList += MySolutionWindowsFormsApplication_CustomizeLanguagesList;
     }
